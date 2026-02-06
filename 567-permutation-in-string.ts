@@ -43,10 +43,10 @@ function checkInclusion1(s1: string, s2: string): boolean {
     // create frequency array for 26 letters
   const array = new Array(26).fill(0);
   // populate the array with s1 and first window of s2
-  for (let l of s1) array[l.charCodeAt(0) - 97]++  
+  for (let l of s1) array[l.charCodeAt(0) - 97]++;
   // decrease the count for the first window of s2
   for (let i = 0; i < s1.length; i++) {
-    array[s2[i].charCodeAt(0) - 97]--
+    array[s2[i].charCodeAt(0) - 97]--;
   }
 
   // check if all counts are zero
@@ -56,8 +56,8 @@ function checkInclusion1(s1: string, s2: string): boolean {
   for (let i = s1.length; i < s2.length; i++) {
     // include the next character in the window
     // exclude the first character of the previous window
-    array[s2[i].charCodeAt(0) - 97]--
-    array[s2[i-s1.length].charCodeAt(0) - 97]++
+    array[s2[i].charCodeAt(0) - 97]--;
+    array[s2[i-s1.length].charCodeAt(0) - 97]++;
 
     // check if all counts are zero
     if (array.every(i=> i === 0)) return true;
